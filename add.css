@@ -1,0 +1,131 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main {
+    display : flex;
+    flex-direction : column;
+}
+
+.heading {
+    display : flex; 
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.heading > h2{
+    margin : 10px;
+    padding : 10px;
+    border-radius :8px;
+    color : blue;
+    background-color: white;
+    box-shadow: 1px 1px 2px 2px rgba(182,182,182,0.75) inset;
+-webkit-box-shadow: 1px 1px 2px 2px rgba(182,182,182,0.75) inset;
+-moz-box-shadow: 1px 1px 2px 2px rgba(182,182,182,0.75) inset;
+}
+
+.heading > button {
+    margin : 10px; 
+    padding : 10px;
+    font-size: 22px;
+    outline: none;
+    user-select: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px 2px rgba(182,182,182,0.75);
+-webkit-box-shadow: 2px 2px 0px 2px rgba(182,182,182,0.75);
+-moz-box-shadow: 2px 2px 0px 2px rgba(182,182,182,0.75);
+background-color: rgb(250, 250, 250);
+cursor: pointer;
+border: none;
+
+
+}
+
+.heading > button:active {
+    color: blue;
+    box-shadow: 1px 1px 0px 1px rgba(134,134,134,0.72);
+-webkit-box-shadow: 1px 1px 0px 1px rgba(134,134,134,0.72);
+-moz-box-shadow: 1px 1px 0px 1px rgba(134,134,134,0.72);
+}
+
+.heading > a {
+    margin : 10px; 
+    padding : 10px;
+    font-size: 22px;
+    outline: none;
+    user-select: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px 2px rgba(182,182,182,0.75);
+-webkit-box-shadow: 2px 2px 0px 2px rgba(182,182,182,0.75);
+-moz-box-shadow: 2px 2px 0px 2px rgba(182,182,182,0.75);
+background-color: rgb(250, 250, 250);
+cursor: pointer;
+border: none;
+text-decoration: none;
+color : black;
+
+}
+
+.heading > a:active {
+    color: blue;
+    box-shadow: 1px 1px 0px 1px rgba(134,134,134,0.72);
+-webkit-box-shadow: 1px 1px 0px 1px rgba(134,134,134,0.72);
+-moz-box-shadow: 1px 1px 0px 1px rgba(134,134,134,0.72);
+}
+
+
+/* ALL CSS OF FORM */
+
+.formclass {
+    display : flex;
+    flex-direction: column;
+    
+}
+
+.extra {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input,textarea {
+    font-size: 20px;
+    margin: 4px;
+    padding : 10px;
+    border-radius: 8px;
+    background-color: white;
+    width: fit-content;
+}
+
+label {
+    font-size: 16px;
+    margin: 4px;
+    padding : 10px;
+    border-radius: 8px;
+    background-color: white;
+    width: fit-content;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+select, option {
+    width: fit-content;
+    border-radius:4px;
+    font-size: 16px;
+    margin: 4px;
+    padding : 6px;
+
+}
+
+h2 {
+    margin: 10px;
+    padding : 10px;
+    color: rgb(255, 179, 0);
+    background-color: white;
+
+}
+
+input::placeholder {
+    color: gray;
+}

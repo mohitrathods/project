@@ -1,0 +1,69 @@
+
+product
+
+- product_id
+- sku   
+- cost
+- price
+- quantity
+- description
+- status
+- color
+- material
+
+category
+
+- category_id
+- name
+- status
+-description
+
+customer
+
+- customer_id
+- first_name
+- last_name
+- email
+- gender
+- mobile
+- status
+
+vendor
+
+- vendor_id
+- first_name
+- last_name
+- email
+- gender
+- mobile
+- status
+- company
+
+salesman
+
+- salesman_id
+- first_name
+- last_name
+- email
+- gender
+- mobile
+- status
+- company
+
+shipping method
+
+- shipping_method_id
+- name
+- amount
+- status
+
+payment method
+
+- payment_method_id
+- name
+- status
+
+ <div class="home">
+            <?php require_once 'product/product.php'; ?>
+           
+        </div>
