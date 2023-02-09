@@ -35,6 +35,7 @@
         <table border="1px">
             <tr>
                 <th>product_id</th>
+                <th>name</th>
                 <th>sku</th>
                 <th>cost</th>
                 <th>price</th>
@@ -49,19 +50,34 @@
             
             <!-- create array -->
             <?php
-            //DATA TO BE INSERTED
-            $product_table = [
-                ['product_id'=>1,'sku'=>'sku1','cost'=>100,'price'=>200,'quantity'=>1,'description'=>'abcd','status'=> 'yes' ,'color'=>'blue','material'=>'metal'],
-                ['product_id'=>2,'sku'=>'sku2','cost'=>200,'price'=>400,'quantity'=>2,'description'=>'efgh','status'=> 'yes' ,'color'=>'red','material'=>'plastic'],
-                ['product_id'=>3,'sku'=>'sku3','cost'=>300,'price'=>600,'quantity'=>3,'description'=>'ijkl','status'=> 'yes' ,'color'=>'green','material'=>'gas'],
-            ];
+            //DATA TO BE INSERTED statically
+            // $product = [
+            //     ['product_id'=>1,'name'=>'product name','sku'=>'sku1','cost'=>100,'price'=>200,'quantity'=>1,'description'=>'abcd','status'=> 'yes' ,'color'=>'blue','material'=>'metal'],
+            //     ['product_id'=>2,'name'=>'product name','sku'=>'sku2','cost'=>200,'price'=>400,'quantity'=>2,'description'=>'efgh','status'=> 'yes' ,'color'=>'red','material'=>'plastic'],
+            //     ['product_id'=>3,'name'=>'product name','sku'=>'sku3','cost'=>300,'price'=>600,'quantity'=>3,'description'=>'ijkl','status'=> 'yes' ,'color'=>'green','material'=>'gas'],
+            // ];
             ?>
+
+                <!-- DATA -->
+                <?php
+                echo "<pre>";
+                    $mysqli = new mysqli('localhost', 'root','', 'project');
+                    
+
+                    // display product database
+                    $gettable = "SELECT * from `product` WHERE 1";
+                    $result = $mysqli->query($gettable); //product table stored in result var only info of row, cols etc displayed
+                    // print_r($result);
+                    $get_alldata = $result->fetch_all(MYSQLI_ASSOC); //store values in get_alldata variable query fired on result var
+                ?>
+
             <?php
             // loop through this array with foreach
-            foreach ($product_table as $arrayy) {
+            foreach ($get_alldata as $arrayy) {
             ?>
             <tr>
                 <td><?php echo $arrayy['product_id'];?></td>
+                <td><?php echo $arrayy['name'];?></td>
                 <td><?php echo $arrayy['sku'];?></td>
                 <td><?php echo $arrayy['cost'];?></td>
                 <td><?php echo $arrayy['price'];?></td>

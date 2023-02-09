@@ -10,7 +10,7 @@
 <body>
 <form class="formclass" action="pinsert.php" method="post">
 <div class="main">
-    <!-- <form> -->
+    
         <!-- header -->
         <div class="heading" >
             <h2>Add Product</h2>
@@ -19,8 +19,7 @@
         </div>
             <!-- main content form -->
         <div class="content">
-            <!-- form -->
-            <form class="formclass" action="pinsert.php" method="post">
+           
                 <h2>PRODUCT INFORMATION</h2>
 
             <div class="extra">
@@ -74,9 +73,7 @@
                </select>
             </div>
                 
-            <!-- </form> -->
         </div>
-        <!-- </form> -->
 
     </div>
 </form>

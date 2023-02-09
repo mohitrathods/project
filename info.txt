@@ -67,3 +67,15 @@ payment method
             <?php require_once 'product/product.php'; ?>
            
         </div>
+
+
+
+- create table and columns either manually or write query to learn it
+images is available in D drive 
+1 image
+- after creating table and rows, 
+- navigate things and look by applying diffrent queries manually or write it 
+2 image see & insert update delete get data perform queries 
+- working in adapter.php file
+
+mysqli-connect : get copy detail from here 

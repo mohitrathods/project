@@ -44,16 +44,43 @@
             </tr>
             
 
+            <!-- dynamic data -->
+            <!-- dynamic data from db -->
             <?php
-                for ($i=1; $i <=12 ; $i++) {
+                //connect
+            $mysqli = new mysqli('localhost', 'root', '', 'project');
+
+            //get table name and fire query
+            $gettable = "SELECT * FROM `shipping` WHERE 1";
+            //store in result var
+            $result = $mysqli->query($gettable);
+            //get all data
+            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($get_alldata as $eachitem){
                 echo "<tr>";
-                echo "<td>".$i ."</td>";
-                echo "<td>n.</td>";
-                echo "<td>a.</td>";
-                echo "<td>s.</td>";
-                echo "<td><a href='sedit.php'>EDIT</a></td>";
+                echo "<td>" . $eachitem['shipping_method_id'] . "</td>";
+                echo "<td>" . $eachitem['name'] . "</td>";
+                echo "<td>" . $eachitem['amount'] . "</td>";
+                echo "<td>" . $eachitem['status'] . "</td>";
+                echo "<td><a href='pedit.php'>EDIT</a></td>";
                 echo "<td><button>DELETE</button></td>";
                 echo "</tr>";
+                
+            }
+            ?>
+
+            <!-- static data -->
+            <?php
+                for ($i=1; $i <=12 ; $i++) {
+                // echo "<tr>";
+                // echo "<td>".$i ."</td>";
+                // echo "<td>n.</td>";
+                // echo "<td>a.</td>";
+                // echo "<td>s.</td>";
+                // echo "<td><a href='sedit.php'>EDIT</a></td>";
+                // echo "<td><button>DELETE</button></td>";
+                // echo "</tr>";
                 }
             ?>
         </table>

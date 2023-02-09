@@ -2,12 +2,12 @@
 <!-- display entries -->
 <!-- setup the delete  -->
 <?php
-$customername = [
-['customer_id' => 1, 'name' => 'mohit rathod'],
-['customer_id' => 2, 'name' => 'mohit rathod'],
-['customer_id' => 3, 'name' => 'mohit rathod'],
-['customer_id' => 4, 'name' => 'mohit rathod']
-];
+// $customername = [
+// ['customer_id' => 1, 'name' => 'mohit rathod'],
+// ['customer_id' => 2, 'name' => 'mohit rathod'],
+// ['customer_id' => 3, 'name' => 'mohit rathod'],
+// ['customer_id' => 4, 'name' => 'mohit rathod']
+// ];
 ?>
 
 <!DOCTYPE html>
@@ -55,10 +55,39 @@ $customername = [
                 <th>mobile</th>
                 <th>status</th>
                 <th><a></a>EDIT</a></th>
-                <th><a href="delete.php?id=<?php $customername['customer_id']?>">DELETE</a></th>
+                <th><a>DELETE</a></th>
+
             </tr>
             
+            <!-- dynamic data from database -->
+            <?php
+                //connect
+            $mysqli = new mysqli('localhost', 'root', '', 'project');
 
+            //write query, store it, fire it
+            $gettable = "SELECT * FROM `customer` WHERE 1";
+            //fire it
+            $result = $mysqli->query($gettable);
+            // get data and store it
+            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+
+            // loop through each
+            foreach ($get_alldata as $eachitem){
+                echo "<tr>";
+                echo "<td>" . $eachitem['customer_id'] . "</td>";
+                echo "<td>" . $eachitem['first_name'] . "</td>";
+                echo "<td>" . $eachitem['last_name'] . "</td>";
+                echo "<td>" . $eachitem['email'] . "</td>";
+                echo "<td>" . $eachitem['gender'] . "</td>";
+                echo "<td>" . $eachitem['mobile'] . "</td>";
+                echo "<td>" . $eachitem['status'] . "</td>";
+                echo "<td><a href='pedit.php'>EDIT</a></td>";
+                echo "<td><button>DELETE</button></td>";
+                echo "</tr>";
+            }
+            ?>
+
+            <!-- static data -->
             <?php
                 // for ($i=1; $i <=12 ; $i++) {
                 // echo "<tr>";
@@ -75,14 +104,6 @@ $customername = [
                 // }
             ?>
 
-            <?php
-                foreach ($customername as $customer) {
-                ?>
-
-                   <tr><td><?php echo $customer['customername'] ?></td></tr>
-                  <?php  
-                }
-            ?>
         </table>
        </div>
     </div>

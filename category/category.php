@@ -43,18 +43,41 @@
                 <th><a>DELETE</a></th>
             </tr>
             
-
+            <!-- GET DATA AND DISPLAY IT -->
             <?php
-                for ($i=1; $i <=12 ; $i++) {
+            $mysqli = new mysqli('localhost', 'root', '', 'project');
+            
+            //display category database
+            $gettable = "SELECT * from `category` WHERE 1";
+            $result = $mysqli->query($gettable); 
+            $get_alldata = $result->fetch_all(MYSQLI_ASSOC); 
+
+            //loop through each item
+            foreach($get_alldata as $eachitem){
                 echo "<tr>";
-                echo "<td>".$i ."</td>";
-                echo "<td>n.</td>";
-                echo "<td>s.</td>";
-                echo "<td>des.</td>";
+                echo "<td>".$eachitem['category_id']."</td>";
+                echo "<td>".$eachitem['name']."</td>";
+                echo "<td>".$eachitem['status']."</td>";
+                echo "<td>".$eachitem['description']."</td>";
                 echo "<td><a href='cedit.php'>EDIT</a></td>";
                 echo "<td><button>DELETE</button></td>";
                 echo "</tr>";
-                }
+            }
+
+            ?>
+
+            <!-- statically displayed data -->
+            <?php
+                // for ($i=1; $i <=12 ; $i++) {
+                // echo "<tr>";
+                // echo "<td>".$i ."</td>";
+                // echo "<td>n.</td>";
+                // echo "<td>s.</td>";
+                // echo "<td>des.</td>";
+                // echo "<td><a href='cedit.php'>EDIT</a></td>";
+                // echo "<td><button>DELETE</button></td>";
+                // echo "</tr>";
+                // }
             ?>
         </table>
        </div>

@@ -48,21 +48,50 @@
                 <th><a >DELETE</a></th>
             </tr>
             
-
+            <!-- dynamic data from database -->
             <?php
-                for ($i=1; $i <=12 ; $i++) {
+            
+            $mysqli = new mysqli('localhost', 'root', '', 'project');
+
+            //get database
+            // query
+            $gettable = "SELECT * FROM `salesman` WHERE 1";
+            // store it
+            $result = $mysqli->query($gettable);
+            //get items
+            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($get_alldata as $eachitem){
                 echo "<tr>";
-                echo "<td>".$i ."</td>";
-                echo "<td>f name</td>";
-                echo "<td>l name</td>";
-                echo "<td>mail</td>";
-                echo "<td>g.</td>";
-                echo "<td>phone</td>";
-                echo "<td>s.</td>";
-                echo "<td>c.</td>";
+                echo "<td>".$eachitem['salesman_id']."</td>";
+                echo "<td>".$eachitem['first_name']."</td>";
+                echo "<td>".$eachitem['last_name']."</td>";
+                echo "<td>".$eachitem['email']."</td>";
+                echo "<td>".$eachitem['gender']."</td>";
+                echo "<td>".$eachitem['mobile']."</td>";
+                echo "<td>".$eachitem['status']."</td>";
+                echo "<td>".$eachitem['company']."</td>";
                 echo "<td><a href='sedit.php'>EDIT</a></td>";
                 echo "<td><button>DELETE</button></td>";
                 echo "</tr>";
+            }
+            ?>
+
+            <!-- static data -->
+            <?php
+                for ($i=1; $i <=12 ; $i++) {
+                // echo "<tr>";
+                // echo "<td>".$i ."</td>";
+                // echo "<td>f name</td>";
+                // echo "<td>l name</td>";
+                // echo "<td>mail</td>";
+                // echo "<td>g.</td>";
+                // echo "<td>phone</td>";
+                // echo "<td>s.</td>";
+                // echo "<td>c.</td>";
+                // echo "<td><a href='sedit.php'>EDIT</a></td>";
+                // echo "<td><button>DELETE</button></td>";
+                // echo "</tr>";
                 }
             ?>
         </table>
