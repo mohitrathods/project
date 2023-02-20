@@ -45,7 +45,7 @@
                 <th>status</th>
                 <th>material</th>
                 <th><a >EDIT</a></th>
-                <th><a>DELETE</a></th>
+                <th><p>DELETE</p></th>
             </tr>
             
             <!-- create array -->
@@ -61,19 +61,32 @@
                 <!-- DATA -->
                 <?php
                 echo "<pre>";
-                    $mysqli = new mysqli('localhost', 'root','', 'project');
+                  //  $mysqli = new mysqli('localhost', 'root','', 'project');
                     
 
                     // display product database
-                    $gettable = "SELECT * from `product` WHERE 1";
-                    $result = $mysqli->query($gettable); //product table stored in result var only info of row, cols etc displayed
+                  //  $gettable = "SELECT * from `product` WHERE 1";
+                   // $result = $mysqli->query($gettable); //product table stored in result var only info of row, cols etc displayed
                     // print_r($result);
-                    $get_alldata = $result->fetch_all(MYSQLI_ASSOC); //store values in get_alldata variable query fired on result var
-                ?>
+                  //  $get_alldata = $result->fetch_all(MYSQLI_ASSOC); //store values in get_alldata variable query fired on result var
+               
+                // if require connect.php file, only can access the fetchAll() function here
+                require_once '../adapter/adapter.php';
+               //DOING AFTER MAKING CLASS manually passed sql query
+               
+               $query = "SELECT * FROM `product` WHERE 1";
+               $adaptervar = new adapter(); //store adapter class in object
+               $products = $adaptervar->fetchAll($query);
+               
+               
+               ?>
+            
 
             <?php
             // loop through this array with foreach
-            foreach ($get_alldata as $arrayy) {
+            //foreach ($get_alldata as $arrayy) {
+            foreach ($products as $arrayy) {
+
             ?>
             <tr>
                 <td><?php echo $arrayy['product_id'];?></td>
@@ -86,8 +99,11 @@
                 <td><?php echo $arrayy['color'];?></td>
                 <td><?php echo $arrayy['status'];?></td>
                 <td><?php echo $arrayy['material'];?></td>
-                <td><a href="pedit.php">EDIT</a></td>
-                <td><a href="pdelete.php">DELETE</a></td>
+                <!-- <td><a href="pedit.php">EDIT</a></td> -->
+                <!-- <td><a href="">DELETE</a></td> -->
+                <td><a href="pedit.php?id=<?php echo $arrayy['product_id']?>">EDIT</a></td>
+               <!-- it is working but in some numbers it isnot working -->
+				<td><a href="pdelete.php?id=<?php echo $arrayy['product_id'] ?>">Delete</a></td>
                 
             </tr>
             <?php

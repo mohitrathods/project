@@ -79,3 +79,10 @@ images is available in D drive
 - working in adapter.php file
 
 mysqli-connect : get copy detail from here 
+
+
+
+
+TRACK RECORD
+- today morning
+- setting the fetch all global function in adapter public class and accessing it into various 7 files using single query

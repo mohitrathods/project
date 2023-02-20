@@ -48,16 +48,25 @@
             <!-- dynamic data from db -->
             <?php
                 //connect
-            $mysqli = new mysqli('localhost', 'root', '', 'project');
+            // $mysqli = new mysqli('localhost', 'root', '', 'project');
 
-            //get table name and fire query
-            $gettable = "SELECT * FROM `shipping` WHERE 1";
-            //store in result var
-            $result = $mysqli->query($gettable);
-            //get all data
-            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+            // //get table name and fire query
+            // $gettable = "SELECT * FROM `shipping` WHERE 1";
+            // //store in result var
+            // $result = $mysqli->query($gettable);
+            // //get all data
+            // $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
 
-            foreach ($get_alldata as $eachitem){
+            //get file
+            require_once "../adapter/adapter.php";
+            //SINGLE QUERY FOR CONNECTION, db access
+            //write query
+            $query = "SELECT shipping_method_id, amount from `shipping` WHERE amount >= 12400 ";
+            $adaptervar = new adapter();
+            $results = $adaptervar->fetchAll($query);
+
+            // foreach ($get_alldata as $eachitem){
+            foreach ($results as $eachitem){
                 echo "<tr>";
                 echo "<td>" . $eachitem['shipping_method_id'] . "</td>";
                 echo "<td>" . $eachitem['name'] . "</td>";

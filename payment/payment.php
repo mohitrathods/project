@@ -46,16 +46,25 @@
             <!-- dynamic data from db -->
             <?php
                 //connect
-            $mysqli = new mysqli('localhost', 'root', '', 'project');
+            // $mysqli = new mysqli('localhost', 'root', '', 'project');
 
-            //get table name and fire query
-            $gettable = "SELECT * FROM `payment` WHERE 1";
-            //store in result var
-            $result = $mysqli->query($gettable);
-            //get all data
-            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+            // //get table name and fire query
+            // $gettable = "SELECT * FROM `payment` WHERE 1";
+            // //store in result var
+            // $result = $mysqli->query($gettable);
+            // //get all data
+            // $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
 
-            foreach ($get_alldata as $eachitem){
+            //get data from single query
+            //get access to adapter file
+            require_once '../adapter/adapter.php';
+            //write query
+            $query = "SELECT * FROM `payment`";
+            $adaptervar = new adapter();
+            $results = $adaptervar->fetchAll($query);
+
+            // foreach ($get_alldata as $eachitem){
+            foreach ($results as $eachitem){
                 echo "<tr>";
                 echo "<td>" . $eachitem['payment_method_id'] . "</td>";
                 echo "<td>" . $eachitem['name'] . "</td>";

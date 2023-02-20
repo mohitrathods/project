@@ -1,3 +1,29 @@
+<?php 
+
+
+echo '<pre>';
+
+//get access to file
+require_once '../adapter/adapter.php';
+
+$adaptervar = new adapter();
+
+//get product id which product to edit 
+$link = $_GET['id']; //get the id and store in link
+
+//get the selected product id and check if it is id that i get from GET method
+$getidquery = "SELECT `product_id` FROM `product` WHERE `product_id`=$link";
+
+//store id in idresult variable
+$idresult = $adaptervar->fetchNumber($getidquery);
+
+if ($idresult['product_id'] === $link ) {
+    $query = "SELECT * FROM `product` WHERE `product_id`= $link ";
+    $adaptervar = new adapter();
+    $product = $adaptervar->fetchRow($query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +34,17 @@
     <title>Edit Product</title>
 </head>
 <body>
+<form class="formclass" action="pupdate.php?id=<?php echo $product['product_id'] ?>" method="post">
+
 <div class="main">
-    <form>
+
         <!-- header -->
         <div class="heading" >
             <h2>Edit Product</h2>
             <a href="../product/product.php">CANCEL</a>
             <button type="submit">SAVE</button>
         </div>
-            <!-- main content form -->
         <div class="content">
-            <!-- form -->
-            <form class="formclass" action="pinsert.php" method="post">
                 <h2>PRODUCT INFORMATION</h2>
 
                 <?php
@@ -28,7 +53,7 @@
                 //validate the id
                 // print_r($_POST);
 
-                $product_data_edit =['product_id'=> 5, 'sku'=>'345k', 'cost'=>400,'price' => 800,'quantity'=>50,'description'=>'edited des.', 'color'=>'green','status'=> 'yes','material'=>'semiconducter' ];
+                // $product_data_edit =['product_id'=> 5, 'sku'=>'345k', 'cost'=>400,'price' => 800,'quantity'=>50,'description'=>'edited des.', 'color'=>'green','status'=> 'yes','material'=>'semiconducter' ];
 
                 ?>
 
@@ -37,65 +62,72 @@
                 <!-- <input type="text" name="name" value="" placeholder="product name" />    -->
                 <!-- set the values into input -->
                 <!-- this will set values in inputbox -->
-                <input type="text" name="id" value=<?php echo $product_data_edit['product_id'] ?> placeholder="price"></input>
+                <input type="text" name="name" value="" placeholder="name"></input>
 
                 <label>SKU</label>
-                <input type="text" name="sku" value=<?php echo $product_data_edit['sku'] ?> placeholder="price" />
+                <input type="text" name="sku" value="" placeholder="sku" />
 
                 <label>COST</label>
-                <input type="text" name="cost" value=<?php echo $product_data_edit['cost'] ?> placeholder="price" />
+                <input type="text" name="cost" value="" placeholder="cost" />
 
                 
             </div>
 
             <div class="extra">
                 <label>PRICE</label>
-                <input type="text" name="price" value=<?php echo $product_data_edit['price'] ?> placeholder="price" />
+                <input type="text" name="price" value="" placeholder="price" />
                 <label>QUANTITY</label>
-                <input type="text" name="name" value=<?php echo $product_data_edit['quantity'] ?> placeholder="enter quantity" />
+                <input type="text" name="quantity" value=""  placeholder="enter quantity" />
                 <label>DESCRIPTION</label>
-                <input type="text" name="description"  value=<?php echo $product_data_edit['description'] ?>></input>
+                <input type="text" name="description"  value="" ></input>
             </div>
                 
             <div class="extra">
-                <label>STATUS</label>
-               <select name="status">
-                    <!-- <option value="yes">
-                        Yes
-                    </option> -->
-                    <!-- preset the values -->
-                    <option value=<?php echo $product_data_edit['status']?>>
-                        
-                    </option>
-               </select>
 
-                <label>COLOUR</label>
-               <select name="colour">
-                    <!-- <option value="red">
+            <label>COLOUR</label>
+               <select name="color">
+                    <option value="red">
                         Red
-                    </option> -->
-                    <option value=<?php echo $product_data_edit['color'] ?>>
+                    </option>
+                    <option value="blue">
+                        Blue
+                    </option>
                        
                     </option>
                </select>
 
+                <label>STATUS</label>
+               <select name="status">
+                    <option value="active">
+                        Active
+                    </option>
+                    <!-- preset the values -->
+                    <option value="inactive">
+                        Inactive
+                    </option>
+               </select>
+
+                
+
                <label>MATERIAL</label>
                <select name="material">
-                    <!-- <option value="glass">
+                    <option value="glass">
                         Glass
                     </option>
                     <option value="metal">
                         Metal 
-                    </option> -->
-                    <option value=<?php echo $product_data_edit['material'] ?>>
+                    </option>
                       
                     </option>
                </select>
             </div>
                 
-            </form>
         </div>
-</form>
     </div>
+    </form>
+
+<?php
+}
+?>
 </body>
 </html>

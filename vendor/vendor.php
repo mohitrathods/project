@@ -52,14 +52,23 @@
             $mysqli = new mysqli('localhost','root','','project');
             
             //query
-            $gettable = "SELECT * FROM `vendor` WHERE 1";
-            // store table data in result var & fire query gettable on mysqli variable
-            $result = $mysqli->query($gettable);
-            // fire query on result and store in get_alldata var
-            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+            // $gettable = "SELECT * FROM `vendor` WHERE 1";
+            // // store table data in result var & fire query gettable on mysqli variable
+            // $result = $mysqli->query($gettable);
+            // // fire query on result and store in get_alldata var
+            // $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+
+            //GET DATA FROM SINGLE QUERY
+            //add file
+            require_once '../adapter/adapter.php';
+            //query to be performed | QUERIES WRITTEN HERE TO BE PERFORMED FOR THE TABLE
+            $query = "SELECT * FROM `vendor` WHERE vendor_id = 1";
+            $adaptervar = new adapter();
+            $vendordata = $adaptervar->fetchAll($query);
 
             // display data
-            foreach ($get_alldata as $eachitem){
+            // foreach ($get_alldata as $eachitem){
+            foreach ($vendordata as $eachitem){
                 echo "<tr>";
                 echo "<td>".$eachitem['vendor_id']."</td>";
                 echo "<td>".$eachitem['first_name']."</td>";

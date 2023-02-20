@@ -53,15 +53,24 @@
             
             $mysqli = new mysqli('localhost', 'root', '', 'project');
 
-            //get database
-            // query
-            $gettable = "SELECT * FROM `salesman` WHERE 1";
-            // store it
-            $result = $mysqli->query($gettable);
-            //get items
-            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+            // //get database
+            // // query
+            // $gettable = "SELECT * FROM `salesman` WHERE 1";
+            // // store it
+            // $result = $mysqli->query($gettable);
+            // //get items
+            // $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
 
-            foreach ($get_alldata as $eachitem){
+            //GETTING DATA FROM adapter class functions etc
+            require_once '../adapter/adapter.php';
+            //write quer to be performed
+            $query = "SELECT salesman_id, first_name from `salesman`";
+            $adaptervar = new adapter();
+            $salesmandata = $adaptervar->fetchAll($query);
+
+
+            // foreach ($get_alldata as $eachitem){
+            foreach ($salesmandata as $eachitem){
                 echo "<tr>";
                 echo "<td>".$eachitem['salesman_id']."</td>";
                 echo "<td>".$eachitem['first_name']."</td>";

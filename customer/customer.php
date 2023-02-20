@@ -62,17 +62,26 @@
             <!-- dynamic data from database -->
             <?php
                 //connect
-            $mysqli = new mysqli('localhost', 'root', '', 'project');
+            // $mysqli = new mysqli('localhost', 'root', '', 'project');
 
-            //write query, store it, fire it
-            $gettable = "SELECT * FROM `customer` WHERE 1";
-            //fire it
-            $result = $mysqli->query($gettable);
-            // get data and store it
-            $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+            // //write query, store it, fire it
+            // $gettable = "SELECT * FROM `customer` WHERE 1";
+            // //fire it
+            // $result = $mysqli->query($gettable);
+            // // get data and store it
+            // $get_alldata = $result->fetch_all(MYSQLI_ASSOC);
+            
+            //require adapter.php file
+            require_once '../adapter/adapter.php';
+            //SINGLE QUERY
+            $query = "SELECT* FROM `customer` WHERE 1";
+            $adaptervar = new adapter(); //get access to class adapter from adapter.php
+            $customers = $adaptervar->fetchAll($query);
 
             // loop through each
-            foreach ($get_alldata as $eachitem){
+            // foreach ($get_alldata as $eachitem){
+            foreach ($customers as $eachitem){
+
                 echo "<tr>";
                 echo "<td>" . $eachitem['customer_id'] . "</td>";
                 echo "<td>" . $eachitem['first_name'] . "</td>";

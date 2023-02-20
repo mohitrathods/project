@@ -48,12 +48,21 @@
             $mysqli = new mysqli('localhost', 'root', '', 'project');
             
             //display category database
-            $gettable = "SELECT * from `category` WHERE 1";
-            $result = $mysqli->query($gettable); 
-            $get_alldata = $result->fetch_all(MYSQLI_ASSOC); 
+            // $gettable = "SELECT * from `category` WHERE 1";
+            // $result = $mysqli->query($gettable); 
+            // $get_alldata = $result->fetch_all(MYSQLI_ASSOC); 
+
+            //get file 
+            require_once '../adapter/adapter.php';
+            //display database class method
+            $query = "SELECT * FROM `category` WHERE 1";
+            $adaptervar = new adapter();
+            $category = $adaptervar->fetchAll($query);
 
             //loop through each item
-            foreach($get_alldata as $eachitem){
+            // foreach($get_alldata as $eachitem){
+            foreach($category as $eachitem){
+
                 echo "<tr>";
                 echo "<td>".$eachitem['category_id']."</td>";
                 echo "<td>".$eachitem['name']."</td>";
