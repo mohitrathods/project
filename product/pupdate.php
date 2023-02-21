@@ -41,7 +41,6 @@ if ($idresult['product_id'] === $link ) {
     $material = $_POST['material'];
 
 
-
     //date time updated at
     date_default_timezone_set('Asia/Kolkata');
     $date = date('m/d/Y h:i:s a', time());

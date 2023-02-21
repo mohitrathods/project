@@ -10,6 +10,8 @@
     <title>Shipping</title>
 </head>
 <body>
+
+
     <!-- MAIN -->
     <div class="main">
 
@@ -61,37 +63,27 @@
             require_once "../adapter/adapter.php";
             //SINGLE QUERY FOR CONNECTION, db access
             //write query
-            $query = "SELECT shipping_method_id, amount from `shipping` WHERE amount >= 12400 ";
+            $query = "SELECT * from `shipping`";
             $adaptervar = new adapter();
             $results = $adaptervar->fetchAll($query);
 
             // foreach ($get_alldata as $eachitem){
             foreach ($results as $eachitem){
-                echo "<tr>";
-                echo "<td>" . $eachitem['shipping_method_id'] . "</td>";
-                echo "<td>" . $eachitem['name'] . "</td>";
-                echo "<td>" . $eachitem['amount'] . "</td>";
-                echo "<td>" . $eachitem['status'] . "</td>";
-                echo "<td><a href='pedit.php'>EDIT</a></td>";
-                echo "<td><button>DELETE</button></td>";
-                echo "</tr>";
-                
+            ?>
+            
+                <tr>
+                    <td><?php echo $eachitem['shipping_method_id'] ?></td>
+                    <td><?php echo $eachitem['name'] ?></td>
+                    <td><?php echo $eachitem['amount'] ?></td>
+                    <td><?php echo $eachitem['status'] ?></td>
+                    <td><a href="sedit.php">EDIT add id here and form </a></td>
+                    <td><a href="sdelete.php?id=<?php echo $eachitem['shipping_method_id'] ?>">DELETE</a></td>
+                </tr>
+
+            <?php
             }
             ?>
 
-            <!-- static data -->
-            <?php
-                for ($i=1; $i <=12 ; $i++) {
-                // echo "<tr>";
-                // echo "<td>".$i ."</td>";
-                // echo "<td>n.</td>";
-                // echo "<td>a.</td>";
-                // echo "<td>s.</td>";
-                // echo "<td><a href='sedit.php'>EDIT</a></td>";
-                // echo "<td><button>DELETE</button></td>";
-                // echo "</tr>";
-                }
-            ?>
         </table>
        </div>
     </div>

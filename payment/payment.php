@@ -65,30 +65,18 @@
 
             // foreach ($get_alldata as $eachitem){
             foreach ($results as $eachitem){
-                echo "<tr>";
-                echo "<td>" . $eachitem['payment_method_id'] . "</td>";
-                echo "<td>" . $eachitem['name'] . "</td>";
-                echo "<td>" . $eachitem['amount'] . "</td>";
-                echo "<td>" . $eachitem['status'] . "</td>";
-                echo "<td><a href='pedit.php'>EDIT</a></td>";
-                echo "<td><button>DELETE</button></td>";
-                echo "</tr>";
-                
-            }
             ?>
-
-            <!-- static data -->
+            <tr>
+                <td><?php echo $eachitem['payment_method_id'] ?></td>
+                <td><?php echo $eachitem['name'] ?></td>
+                <td><?php echo $eachitem['amount'] ?></td>
+                <td><?php echo $eachitem['status'] ?></td>
+                <td><a href="pedit.php">EDIT and also add id in form and here</a></td>
+                <td><a href="../payment/pdetele.php?id=<?php echo $eachitem['payment_method_id'] ?>">DELETE</a></td>
+            </tr>
+              
             <?php
-                for ($i=1; $i <=12 ; $i++) {
-                // echo "<tr>";
-                // echo "<td>".$i ."</td>";
-                // echo "<td>n.</td>";
-                // echo "<td>a.</td>";
-                // echo "<td>s.</td>";
-                // echo "<td><a href='pedit.php'>EDIT</a></td>";
-                // echo "<td><button>DELETE</button></td>";
-                // echo "</tr>";
-                }
+            }
             ?>
         </table>
        </div>

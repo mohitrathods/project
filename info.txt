@@ -86,3 +86,14 @@ mysqli-connect : get copy detail from here
 TRACK RECORD
 - today morning
 - setting the fetch all global function in adapter public class and accessing it into various 7 files using single query
+- insert update delete in product 
+
+TRACK RECORD tuesday 
+- all 7 applications with insert, update, delete  CLOSED today 
+
+
+
+NEW PROJECT
+- while inserting anything, id is auto generated from db (if any)
+
+

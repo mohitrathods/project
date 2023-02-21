@@ -20,7 +20,7 @@
             <!-- main content form -->
         <div class="content">
             <!-- form -->
-            <form class="formclass" action="insert.php" method="post">
+            <!-- <form class="formclass" action="insert.php" method="post"> -->
                 <h2>ADD DATA</h2>
 
             <div class="extra">
@@ -35,36 +35,40 @@
             <div class="extra">
                 <label>EMAIL</label>
                 <input type="email" name="email"  placeholder="enter email" />
-                <label>PHONE</label>
-                <input type="number" name="phone"  placeholder="enter phone number" />
+            
+                
+                <label>GENDER</label>
+               <select name="gender">
+                    <option value="male">
+                        MALE
+                    </option>
+                    <option value="female">
+                        FEMALE 
+                    </option>
+               </select>
                 
             </div>
                 
             <div class="extra">
+
+            <label>PHONE</label>
+                <input type="number" name="mobile"  placeholder="enter phone number" />
+
                 <label>STATUS</label>
                <select name="status">
-                    <option value="yes">
+                    <option value="active">
                         Yes
                     </option>
-                    <option value="no">
+                    <option value="inactive">
                         No 
                     </option>
                </select>
 
-                <label>GENDER</label>
-               <select name="gender">
-                    <option value="red">
-                        MALE
-                    </option>
-                    <option value="blue">
-                        FEMALE 
-                    </option>
-               </select>
 
                
             </div>
                 
-            </form>
+            <!-- </form> -->
         </div>
 </form>
     </div>

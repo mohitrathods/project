@@ -1,0 +1,3 @@
+- if error is 
+Warning: Undefined array key "id" in C:\xamppp\htdocs\project\customer\update.php on line 8
+-----> check weather id is given to form, link, or button or not > ?id=<?php?>

@@ -45,7 +45,9 @@
             
             <!-- GET DATA AND DISPLAY IT -->
             <?php
-            $mysqli = new mysqli('localhost', 'root', '', 'project');
+echo "<pre>";
+
+            // $mysqli = new mysqli('localhost', 'root', '', 'project');
             
             //display category database
             // $gettable = "SELECT * from `category` WHERE 1";
@@ -58,22 +60,25 @@
             $query = "SELECT * FROM `category` WHERE 1";
             $adaptervar = new adapter();
             $category = $adaptervar->fetchAll($query);
-
-            //loop through each item
-            // foreach($get_alldata as $eachitem){
-            foreach($category as $eachitem){
-
-                echo "<tr>";
-                echo "<td>".$eachitem['category_id']."</td>";
-                echo "<td>".$eachitem['name']."</td>";
-                echo "<td>".$eachitem['status']."</td>";
-                echo "<td>".$eachitem['description']."</td>";
-                echo "<td><a href='cedit.php'>EDIT</a></td>";
-                echo "<td><button>DELETE</button></td>";
-                echo "</tr>";
-            }
-
             ?>
+            <!-- //loop through each item
+            // foreach($get_alldata as $eachitem){ -->
+            <?php
+            foreach($category as $eachitem){
+                
+            ?>
+            <tr>
+                <td><?php echo $eachitem['category_id'] ?></td>
+                <td><?php echo $eachitem['name'] ?></td>
+                <td><?php echo $eachitem['status'] ?> </td>
+                <td><?php echo $eachitem['description'] ?></td>
+                <td><a href="cedit.php?id=<?php echo $eachitem['category_id'] ?>">EDIT</a></td>
+                <td><a href="cdelete.php?id=<?php echo $eachitem['category_id'] ?>">DELETE</a></td>
+              
+            </tr>
+           <?php
+            }
+            ?>            
 
             <!-- statically displayed data -->
             <?php

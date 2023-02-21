@@ -75,7 +75,7 @@
                //DOING AFTER MAKING CLASS manually passed sql query
                
                $query = "SELECT * FROM `product` WHERE 1";
-               $adaptervar = new adapter(); //store adapter class in object
+               $adaptervar = new adapter(); //store adapter class in object OR call the adapter class
                $products = $adaptervar->fetchAll($query);
                
                

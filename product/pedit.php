@@ -18,6 +18,8 @@ $getidquery = "SELECT `product_id` FROM `product` WHERE `product_id`=$link";
 $idresult = $adaptervar->fetchNumber($getidquery);
 
 if ($idresult['product_id'] === $link ) {
+
+    //THIS QUERY IS TO FETCH THE PARTICLUAR RAW TO BE EDITED
     $query = "SELECT * FROM `product` WHERE `product_id`= $link ";
     $adaptervar = new adapter();
     $product = $adaptervar->fetchRow($query);
@@ -62,24 +64,24 @@ if ($idresult['product_id'] === $link ) {
                 <!-- <input type="text" name="name" value="" placeholder="product name" />    -->
                 <!-- set the values into input -->
                 <!-- this will set values in inputbox -->
-                <input type="text" name="name" value="" placeholder="name"></input>
+                <input type="text" name="name" value=<?php echo $product['name'] ?> placeholder="name"></input>
 
                 <label>SKU</label>
-                <input type="text" name="sku" value="" placeholder="sku" />
+                <input type="text" name="sku" value=<?php echo $product['sku'] ?> placeholder="sku" />
 
                 <label>COST</label>
-                <input type="text" name="cost" value="" placeholder="cost" />
+                <input type="text" name="cost" value=<?php echo $product['cost'] ?> placeholder="cost" />
 
                 
             </div>
 
             <div class="extra">
                 <label>PRICE</label>
-                <input type="text" name="price" value="" placeholder="price" />
+                <input type="text" name="price" value=<?php echo $product['price'] ?> placeholder="price" />
                 <label>QUANTITY</label>
-                <input type="text" name="quantity" value=""  placeholder="enter quantity" />
+                <input type="text" name="quantity" value=<?php echo $product['quantity'] ?>  placeholder="enter quantity" />
                 <label>DESCRIPTION</label>
-                <input type="text" name="description"  value="" ></input>
+                <input type="text" name="description"  value=<?php echo $product['description'] ?> ></input>
             </div>
                 
             <div class="extra">
