@@ -71,7 +71,7 @@
                 <td><?php echo $eachitem['name'] ?></td>
                 <td><?php echo $eachitem['amount'] ?></td>
                 <td><?php echo $eachitem['status'] ?></td>
-                <td><a href="pedit.php">EDIT and also add id in form and here</a></td>
+                <td><a href="../payment/pedit.php?id=<?php echo $eachitem['payment_method_id'] ?>">EDIT</a></td>
                 <td><a href="../payment/pdetele.php?id=<?php echo $eachitem['payment_method_id'] ?>">DELETE</a></td>
             </tr>
               

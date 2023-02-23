@@ -76,7 +76,7 @@
                     <td><?php echo $eachitem['name'] ?></td>
                     <td><?php echo $eachitem['amount'] ?></td>
                     <td><?php echo $eachitem['status'] ?></td>
-                    <td><a href="sedit.php">EDIT add id here and form </a></td>
+                    <td><a href="sedit.php?id=<?php echo $eachitem['shipping_method_id'] ?>">EDIT </a></td>
                     <td><a href="sdelete.php?id=<?php echo $eachitem['shipping_method_id'] ?>">DELETE</a></td>
                 </tr>
 

@@ -62,26 +62,28 @@
             //add file
             require_once '../adapter/adapter.php';
             //query to be performed | QUERIES WRITTEN HERE TO BE PERFORMED FOR THE TABLE
-            $query = "SELECT * FROM `vendor` WHERE vendor_id = 1";
+            $query = "SELECT * FROM `vendor` WHERE 1";
             $adaptervar = new adapter();
             $vendordata = $adaptervar->fetchAll($query);
 
             // display data
             // foreach ($get_alldata as $eachitem){
-            foreach ($vendordata as $eachitem){
-                echo "<tr>";
-                echo "<td>".$eachitem['vendor_id']."</td>";
-                echo "<td>".$eachitem['first_name']."</td>";
-                echo "<td>".$eachitem['last_name']."</td>";
-                echo "<td>".$eachitem['email']."</td>";
-                echo "<td>".$eachitem['gender']."</td>";
-                echo "<td>".$eachitem['mobile']."</td>";
-                echo "<td>".$eachitem['status']."</td>";
-                echo "<td>".$eachitem['company']."</td>";
-                echo "<td><a href='vedit.php'>EDIT</a></td>";
-                echo "<td><button>DELETE</button></td>";
-                echo "</tr>";
-
+            
+                foreach ($vendordata as $eachitem){
+            ?>
+            <tr>
+                <td><?php echo $eachitem['vendor_id'] ?></td>
+                <td><?php echo $eachitem['first_name'] ?></td>
+                <td><?php echo $eachitem['last_name'] ?></td>
+                <td><?php echo $eachitem['email'] ?></td>
+                <td><?php echo $eachitem['gender'] ?></td>
+                <td><?php echo $eachitem['mobile'] ?></td>
+                <td><?php echo $eachitem['status'] ?></td>
+                <td><?php echo $eachitem['company'] ?></td>
+                <td><a href="vedit.php?id=<?php echo $eachitem['vendor_id'] ?>">EDIT</a></td>
+                <td><a href="vdelete.php?id=<?php echo $eachitem['vendor_id'] ?>">DELETE</a></td>
+            </tr>
+            <?php
             }
 
             ?>

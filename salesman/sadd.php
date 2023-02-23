@@ -8,6 +8,8 @@
     <title>Add data</title>
 </head>
 <body>
+
+<form action="sinsert.php" method="post">
 <div class="main">
         <!-- header -->
         <div class="heading" >
@@ -18,7 +20,6 @@
            <!-- main content form -->
         <div class="content">
             <!-- form -->
-            <form class="formclass">
                 <h2>ADD DATA</h2>
 
             <div class="extra">
@@ -33,38 +34,41 @@
             <div class="extra">
                 <label>EMAIL</label>
                 <input type="email" name="email"  placeholder="enter email" />
+                
+                <label>GENDER</label>
+               <select name="gender">
+                    <option value="male">
+                        MALE
+                    </option>
+                    <option value="female">
+                        FEMALE 
+                    </option>
+               </select>
+                
                 <label>PHONE</label>
-                <input type="number" name="phone"  placeholder="enter phone number" />
-                <label>COMPANY</label>
-                <input type="text" name="company"  placeholder="enter company name" />
+                <input type="number" name="mobile"  placeholder="enter phone number" />
+                
             </div>
                 
             <div class="extra">
                 <label>STATUS</label>
                <select name="status">
-                    <option value="yes">
+                    <option value="active">
                         Yes
                     </option>
-                    <option value="no">
+                    <option value="inactive">
                         No 
                     </option>
                </select>
 
-                <label>GENDER</label>
-               <select name="gender">
-                    <option value="red">
-                        MALE
-                    </option>
-                    <option value="blue">
-                        FEMALE 
-                    </option>
-               </select>
+               <label>COMPANY</label>
+                <input type="text" name="company"  placeholder="enter company name" />
 
                
             </div>
                 
-            </form>
         </div>
     </div>
+</form>
 </body>
 </html>

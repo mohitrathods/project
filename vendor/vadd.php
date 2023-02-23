@@ -8,6 +8,8 @@
     <title>Add Vendor</title>
 </head>
 <body>
+
+<form action="vinsert.php" method="post">
 <div class="main">
         <!-- header -->
         <div class="heading" >
@@ -33,23 +35,7 @@
             <div class="extra">
                 <label>EMAIL</label>
                 <input type="email" name="email"  placeholder="enter email" />
-                <label>PHONE</label>
-                <input type="number" name="phone"  placeholder="enter phone number" />
-                <label>COMPANY</label>
-                <input type="text" name="company"  placeholder="enter company name" />
-            </div>
-                
-            <div class="extra">
-                <label>STATUS</label>
-               <select name="status">
-                    <option value="yes">
-                        Yes
-                    </option>
-                    <option value="no">
-                        No 
-                    </option>
-               </select>
-
+               
                 <label>GENDER</label>
                <select name="gender">
                     <option value="red">
@@ -60,11 +46,31 @@
                     </option>
                </select>
 
+                <label>PHONE</label>
+                <input type="number" name="mobile"  placeholder="enter phone number" />
+              
+            </div>
+                
+            <div class="extra">
+                <label>STATUS</label>
+               <select name="status">
+                    <option value="active">
+                        Yes
+                    </option>
+                    <option value="inactive">
+                        No 
+                    </option>
+               </select>
+
+               <label>COMPANY</label>
+                <input type="text" name="company"  placeholder="enter company name" />
+
                
             </div>
                 
             </form>
         </div>
     </div>
+</form>
 </body>
 </html>

@@ -1,3 +1,23 @@
+<?php
+echo "<pre>";
+
+require_once '../adapter/adapter.php';
+$adaptervar = new adapter();
+
+
+$link = $_GET['id'];
+
+$checkid = "SELECT `vendor_id` FROM `vendor` WHERE `vendor_id` = $link";
+
+$idresult = $adaptervar->fetchNumber($checkid);
+
+if ($idresult['vendor_id'] === $link) {
+    //fetch the row to be edited
+    $adaptervar = new adapter();
+    $query = "SELECT * FROM `vendor` WHERE `vendor_id` = $link";
+    $rowresult = $adaptervar->fetchRow($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +28,16 @@
     <title>Edit vendor</title>
 </head>
 <body>
+<form class="formclass" action="vupdate.php?id=<?php echo $idresult['vendor_id'] ?>" method="post">
 <div class="main">
         <!-- header -->
         <div class="heading" >
             <h2>Edit info. of vendor</h2>
             <a href="../vendor/vendor.php">CANCEL</a>
-            <button>SAVE</button>
+            <button type="submit">SAVE</button>
         </div>
-           <!-- main content form -->
         <div class="content">
             <!-- form -->
-            <form class="formclass">
                 <h2>ADD DATA</h2>
 
             <div class="extra">
@@ -33,38 +52,41 @@
             <div class="extra">
                 <label>EMAIL</label>
                 <input type="email" name="email"  placeholder="enter email" />
+
+                <label>GENDER</label>
+               <select name="gender">
+                    <option value="male">
+                        MALE
+                    </option>
+                    <option value="female">
+                        FEMALE 
+                    </option>
+               </select>
+
                 <label>PHONE</label>
-                <input type="number" name="phone"  placeholder="enter phone number" />
-                <label>COMPANY</label>
-                <input type="text" name="company"  placeholder="enter company name" />
+                <input type="number" name="mobile"  placeholder="enter phone number" />
+                
             </div>
                 
             <div class="extra">
                 <label>STATUS</label>
                <select name="status">
-                    <option value="yes">
+                    <option value="active">
                         Yes
                     </option>
-                    <option value="no">
+                    <option value="inactive">
                         No 
                     </option>
                </select>
-
-                <label>GENDER</label>
-               <select name="gender">
-                    <option value="red">
-                        MALE
-                    </option>
-                    <option value="blue">
-                        FEMALE 
-                    </option>
-               </select>
-
-               
+               <label>COMPANY</label>
+                <input type="text" name="company"  placeholder="enter company name" />
             </div>
-                
-            </form>
         </div>
     </div>
+</form>
+<?php
+}
+?>
+
 </body>
 </html>

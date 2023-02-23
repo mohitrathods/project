@@ -88,12 +88,21 @@ TRACK RECORD
 - setting the fetch all global function in adapter public class and accessing it into various 7 files using single query
 - insert update delete in product 
 
-TRACK RECORD tuesday 
-- all 7 applications with insert, update, delete  CLOSED today 
+TRACK RECORD tuesday 21th feb
+- all 7 applications with insert, update, delete  in 3 applications 
+- all 7 apps closed with delete operations
+
+22 holiday
+23 feb 
+- crud operations totally completed
+- 
 
 
 
 NEW PROJECT
 - while inserting anything, id is auto generated from db (if any)
 
-
+ERRORS
+- id access no thay tya class sarkho access nathi thyo 
+- or tya form, button, link ma id mentioin n thyu hoy to khabar n pade 
+- either form ma method post na aapi hoy

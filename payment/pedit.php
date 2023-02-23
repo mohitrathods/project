@@ -1,3 +1,23 @@
+<?php
+require_once '../adapter/adapter.php';
+$adaptervar = new adapter();
+
+$link = $_GET['id'];
+
+// match id query
+$matchid = "SELECT `payment_method_id` FROM `payment` WHERE `payment_method_id` = $link";
+$resultid = $adaptervar->fetchNumber($matchid);
+
+if ($resultid['payment_method_id'] === $link) {
+
+    //fetch row to be edited : query
+    $adaptervar = new adapter();
+    $query = "SELECT * FROM `payment` WHERE `payment_method_id` = $link";
+    $result = $adaptervar->fetchRow($query);
+
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +28,8 @@
     <title>edit Payment info</title>
 </head>
 <body>
+
+<form method="post" action="pupdate.php?id=<?php echo $resultid['payment_method_id'] ?>">
 <div class="main">
         <!-- header -->
         <div class="heading" >
@@ -15,10 +37,7 @@
             <a href="../payment/payment.php">CANCEL</a>
             <button>SAVE</button>
         </div>
-            <!-- main content form -->
         <div class="content">
-            <!-- form -->
-            <form class="formclass">
                 <h2>PAYMENT INFORMATION</h2>
 
             <div class="extra">
@@ -30,13 +49,13 @@
 
             <div class="extra">
                 <label>AMOUNT</label>
-                <input type="number" name="code" value="" placeholder="enter amount" />
+                <input type="number" name="amount" value="" placeholder="enter amount" />
                 <label>STATUS</label>
                <select name="status">
-                    <option value="yes">
+                    <option value="active">
                         Yes
                     </option>
-                    <option value="no">
+                    <option value="inactive">
                         No 
                     </option>
                </select>
@@ -44,8 +63,12 @@
                 
             
                 
-            </form>
         </div>
     </div>
+</form>
+<?php
+}
+?>
+
 </body>
 </html>

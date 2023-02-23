@@ -8,17 +8,18 @@
     <title>Shipping add info</title>
 </head>
 <body>
+<form class="formclass" action="sinsert.php" method="post">
+
 <div class="main">
         <!-- header -->
         <div class="heading" >
             <h2>Add Shipping info</h2>
             <a href="../shipping/shipping.php">CANCEL</a>
-            <button>SAVE</button>
+            <button type="submit">SAVE</button>
         </div>
             <!-- main content form -->
         <div class="content">
             <!-- form -->
-            <form class="formclass">
                 <h2>SHIPPING INFORMATION</h2>
 
             <div class="extra">
@@ -30,13 +31,13 @@
 
             <div class="extra">
                 <label>AMOUNT</label>
-                <input type="number" name="code" value="" placeholder="enter amount" />
+                <input type="number" name="amount" value="" placeholder="enter amount" />
                 <label>STATUS</label>
                <select name="status">
-                    <option value="yes">
+                    <option value="active">
                         Yes
                     </option>
-                    <option value="no">
+                    <option value="inactive">
                         No 
                     </option>
                </select>
@@ -44,8 +45,10 @@
                 
             
                 
-            </form>
         </div>
     </div>
+
+    </form>
+
 </body>
 </html>
